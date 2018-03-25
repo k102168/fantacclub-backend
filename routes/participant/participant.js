@@ -12,41 +12,37 @@ router.get('/participant',(rq,res,next)=>   {
 
 //get only one participants
 router.get('/participant/:participantid',(req,res,next)=>{
-const id=req.params.particpantid;
-Participant.findById(id, (err, results)=>{
-    res.status(200).json(results)
-} );
+    const id=req.params.particpantid;
+    Participant.findById(id, (err, results)=>{
+        res.status(200).json(results)
+    });
 })
 
-
-
-
-
+// add participant 
 router.post('/participants',(req,res,next)=>{
-const  {
-    name,
-    phoneNumber,
-    email,
-    wins
-}=req.body;
-const _id = new mongoose.Types.ObjectId();
-const participant=new Participant({
-    name,
-    phoneNumber,
-    email,
-    wins
-})
+    const {
+        name,
+        phoneNumber,    
+        email,
+        wins
+    } = req.body;
 
-participant.save().then(results=>{
-    res.status(200).json(result);
-}).catch( err =>{
-    res.status(500).json({
-        error: err
+    const _id = new mongoose.Types.ObjectId();
+
+    const participant=new Participant({
+        name,
+        phoneNumber,
+        email,
+        wins
+    });
+
+    participant.save()
+    .then(results=>{
+        res.status(200).json(result);
     })
-})
-
-
-
-}
-
+    .catch( err =>{
+        res.status(500).json({
+            error: err
+        })
+    })
 })
