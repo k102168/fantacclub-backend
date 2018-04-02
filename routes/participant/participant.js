@@ -3,7 +3,7 @@ const Participant=require('../../models/participants');
 const mongoose=require('mongoose');
 
 //get all the participants
-router.get('/participant',(rq,res,next)=>   {
+router.get('/participant',(req,res,next)=>   {
     Participant.find({},function(err,results){
         console.log(results)
         res.status(200).json(results)
@@ -12,41 +12,42 @@ router.get('/participant',(rq,res,next)=>   {
 
 //get only one participants
 router.get('/participant/:participantid',(req,res,next)=>{
-const id=req.params.particpantid;
-Participant.findById(id, (err, results)=>{
-    res.status(200).json(results)
-} );
+    const id=req.params.particpantid;
+    Participant.findById(id, (err, results)=>{
+        res.status(200).json(results)
+    } );
 })
-
-
-
-
-
-router.post('/participants',(req,res,next)=>{
-const  {
-    name,
-    phoneNumber,
-    email,
-    wins
-}=req.body;
+//post participants
+router.post('/participant',(req,res,next)=>{
+     console.log("Enter in Post Function")
+     //console.log(req.body);
+    // res.end();
+    const  {
+        name,
+        phoneNumber,
+        email,
+        wins
+    }=req.body;
 const _id = new mongoose.Types.ObjectId();
-const participant=new Participant({
-    name,
-    phoneNumber,
-    email,
-    wins
-})
-
-participant.save().then(results=>{
-    res.status(200).json(result);
-}).catch( err =>{
-    res.status(500).json({
-        error: err
+    const participant=new Participant({
+        _id,
+        name,
+        phoneNumber,
+        email,
+        wins
     })
-})
+    participant.save().then( result =>{
+        res.status(200).json(result);
+        console.log(result);
+    })
+    .catch( err =>{
+        res.status(500).json({
+            error: err
+            
+        })
+        console.log(err);
+    })
+ })
 
 
-
-}
-
-})
+module.exports = router;

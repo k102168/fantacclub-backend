@@ -1,8 +1,9 @@
-const mongoose=require('moongoose');
+const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 const participantSchema=new Schema({
     _id : Schema.Types.ObjectId,
-    name:{type:String , required :true},
+    // _id:    {Schema:Types.ObjectId, default: new ObjectId()},
+    name:{type:String, required :true},
     phoneNumber:{type:String},
     email:{type:String},
     wins:{type:Array},

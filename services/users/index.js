@@ -3,8 +3,8 @@ const {generateToken} = require('../../utilities/jwt_token')
 
 
 async function signup(req,res,next){
+    console.log(req.body);
     const {email, password} = req.body;
-    
     // find user if already exists
      const foundUser = await User.findOne({ email });
     if (foundUser) { 
@@ -20,15 +20,23 @@ async function signup(req,res,next){
     res.send({ token });
 }
 
+
+
 async function login(req, res, next){
+    // console.log(req.headers);
+    // res.send({data : "ok hai"});
     const {email, password} = req.body;
-    //const newUser = await User({email, password});
+    
     const token = generateToken(req.user);
     res.send({token})
+
+//extra line
+    //const newUser = await User({email, password});
 }
 
 
 module.exports = {
      signup,
-     login
+     login,
+
 }
