@@ -11,7 +11,6 @@ async function signup(req,res,next){
         return res.status(403).json({ error: 'Email is already in use'});
     }
     const newUser = new User({email, password});
-    
     //save user
     await newUser.save();
     console.log("before generating")
@@ -23,10 +22,9 @@ async function signup(req,res,next){
 
 
 async function login(req, res, next){
-    // console.log(req.headers);
-    // res.send({data : "ok hai"});
+    console.log("enter in login finc")
+    console.log(req.body);
     const {email, password} = req.body;
-    
     const token = generateToken(req.user);
     res.send({token})
 
@@ -36,7 +34,5 @@ async function login(req, res, next){
 
 
 module.exports = {
-     signup,
-     login,
-
+    login,signup
 }
