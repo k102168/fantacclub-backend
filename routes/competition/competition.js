@@ -18,6 +18,7 @@ router.get('/competition/:competionId', (req, res, next)=>{
 })
 
 router.post('/competition', (req, res, next) =>{
+    console.log(req.body);
     const {
         name,
         place,
@@ -26,7 +27,7 @@ router.post('/competition', (req, res, next) =>{
         priceMoney,
         startDate,
         endDate,
-        leaderBoard,
+        noofdays,
         pigeons,
     } = req.body;
     const _id = new mongoose.Types.ObjectId();
@@ -39,7 +40,7 @@ router.post('/competition', (req, res, next) =>{
         priceMoney,
         startDate,
         endDate,
-        leaderBoard,
+        noofdays,
         pigeons,
     });
     competition.save().then( result =>{

@@ -26,7 +26,8 @@ router.post('/participant',(req,res,next)=>{
         name,
         phoneNumber,
         email,
-        wins
+        wins,
+        roofnumber
     }=req.body;
 const _id = new mongoose.Types.ObjectId();
     const participant=new Participant({
@@ -34,7 +35,8 @@ const _id = new mongoose.Types.ObjectId();
         name,
         phoneNumber,
         email,
-        wins
+        wins,
+        roofnumber
     })
     participant.save().then( result =>{
         res.status(200).json(result);
@@ -47,7 +49,5 @@ const _id = new mongoose.Types.ObjectId();
         })
         console.log(err);
     })
-
-
-
+})
 module.exports = router;

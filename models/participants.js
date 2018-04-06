@@ -7,6 +7,7 @@ const participantSchema=new Schema({
     phoneNumber:{type:String},
     email:{type:String},
     wins:{type:Array},
+    roofnumber:{type:Number}
 })
 const Participant=mongoose.model('participant',participantSchema);
 module.exports=Participant;
