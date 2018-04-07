@@ -50,4 +50,10 @@ const _id = new mongoose.Types.ObjectId();
         console.log(err);
     })
 })
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2d4e74ecd1731cf4495eca355f9573a0c1f76c31
 module.exports = router;
