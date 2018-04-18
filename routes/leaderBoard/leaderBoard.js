@@ -55,12 +55,20 @@ router.get('/leaderboard',(req,res,next)=>   {
         }
         temp=grandT
     })
-    let leaderboard = [{
-        participantsName:"owais",
-        flytime:"06:00:00",
-        pigeonLand:pigeonLand,
-        grandTotal:`${grandT[0].trim()}:${grandT[1].trim()}:${grandT[2].trim()}`
-    }];
+    let leaderboard = [
+        {
+            participantsName:"owais",
+            flytime:"06:00:00",
+            pigeonLand:pigeonLand,
+            grandTotal:`${grandT[0].trim()}:${grandT[1].trim()}:${grandT[2].trim()}`
+        },
+        {
+            participantsName:"ahmed",
+            flytime:"06:00:00",
+            pigeonLand:pigeonLand,
+            grandTotal:`${grandT[0].trim()}:${grandT[1].trim()}:${grandT[2].trim()}`
+        }
+    ];
     res.send(leaderboard)
 })
 
