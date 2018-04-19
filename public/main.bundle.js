@@ -684,7 +684,7 @@ module.exports = ""
 /***/ "./src/app/components/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <footer>\n    <div class=\"container-fluid\">\n        <nav class=\"pull-left\">\n            <ul>\n                <li>\n                    <a href=\"#\">\n                        Home\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        Company\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        Portfolio\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                       Blog\n                    </a>\n                </li>\n            </ul>\n        </nav>\n        <p class=\"copyright pull-right\">\n            &copy; {{test | date: 'yyyy'}} <a href=\"http://www.creative-tim.com\">Creative Tim</a>, made with love for a better web\n        </p>\n    </div>\n</footer> -->\n"
+module.exports = "<!-- <footer>\n    <div class=\"container-fluid\">\n        <nav class=\"pull-left\">\n            <ul>\n                <li>\n                    <a href=\"#\">\n                        Home\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        Company\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                        Portfolio\n                    </a>\n                </li>\n                <li>\n                    <a href=\"#\">\n                       Blog\n                    </a>\n                </li>\n            </ul>\n        </nav>\n        <p class=\"copyright pull-right\">\n            &copy; {{test | date: 'yyyy'}} <a href=\"\"></a>, made with love for a better web\n        </p>\n    </div>\n</footer> -->\n"
 
 /***/ }),
 
@@ -1100,7 +1100,7 @@ var DashboardComponent = (function () {
         //           tension: 0
         //       }),
         //       low: 0,
-        //       high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        //       high: 50, 
         //       chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
         //   }
         //var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
@@ -1117,7 +1117,7 @@ var DashboardComponent = (function () {
         //           tension: 0
         //       }),
         //       low: 0,
-        //       high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        //       high: 1000, 
         //       chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
         //   }
         // var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
