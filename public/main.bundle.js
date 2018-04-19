@@ -313,13 +313,15 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__competitionedit_competitionedit_component__ = __webpack_require__("./src/app/competitionedit/competitionedit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__participantedit_participantedit_component__ = __webpack_require__("./src/app/participantedit/participantedit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_update_pigeon_timing_service__ = __webpack_require__("./src/app/services/update-pigeon-timing.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_get_leader_board_service__ = __webpack_require__("./src/app/services/get-leader-board.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_guard_guard_component__ = __webpack_require__("./src/app/components/guard/guard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__services_get_leader_board_service__ = __webpack_require__("./src/app/services/get-leader-board.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -389,7 +391,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__app_routing__["a" /* AppRoutingModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_33__services_get_leader_board_service__["a" /* GetLeaderBoardService */],
+                __WEBPACK_IMPORTED_MODULE_33__components_guard_guard_component__["a" /* GuardComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__services_get_leader_board_service__["a" /* GetLeaderBoardService */],
                 __WEBPACK_IMPORTED_MODULE_22__services_participants_get_all_service__["a" /* GetAllService */],
                 __WEBPACK_IMPORTED_MODULE_23__services_competition_get_all_competetion_service__["a" /* GetAllCompetetionService */],
                 __WEBPACK_IMPORTED_MODULE_24__services_competition_postcompetition_service__["a" /* PostcompetitionService */],
@@ -433,12 +436,14 @@ var AppModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__compadmin_compadmin_component__ = __webpack_require__("./src/app/compadmin/compadmin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__competitionedit_competitionedit_component__ = __webpack_require__("./src/app/competitionedit/competitionedit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__participantedit_participantedit_component__ = __webpack_require__("./src/app/participantedit/participantedit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_guard_guard_component__ = __webpack_require__("./src/app/components/guard/guard.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -470,7 +475,7 @@ var routes = [
     { path: 'aboutus', component: __WEBPACK_IMPORTED_MODULE_12__about_us_about_us_component__["a" /* AboutUsComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_12__about_us_about_us_component__["a" /* AboutUsComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_13__admin_admin_component__["a" /* AdminComponent */] },
-    { path: 'panel', component: __WEBPACK_IMPORTED_MODULE_14__panel_panel_component__["a" /* PanelComponent */] },
+    { path: 'panel', component: __WEBPACK_IMPORTED_MODULE_14__panel_panel_component__["a" /* PanelComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__components_guard_guard_component__["a" /* GuardComponent */]], },
     { path: 'compadmin', component: __WEBPACK_IMPORTED_MODULE_16__compadmin_compadmin_component__["a" /* CompadminComponent */] },
     { path: 'participantedit/:_id', component: __WEBPACK_IMPORTED_MODULE_18__participantedit_participantedit_component__["a" /* ParticipanteditComponent */] },
     { path: 'competetionedit', component: __WEBPACK_IMPORTED_MODULE_17__competitionedit_competitionedit_component__["a" /* CompetitioneditComponent */] },
@@ -725,6 +730,49 @@ var FooterComponent = (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/guard/guard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var GuardComponent = (function () {
+    function GuardComponent(router) {
+        this.router = router;
+    }
+    GuardComponent.prototype.canActivate = function (route, state) {
+        //his.bus.subscribe(this.events.received.data.isUserExpired.success, this.setIsUserExpired, this);
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        // not logged in so redirect to login page with the return url
+        this.router.navigate(['compadmin'], { queryParams: { next: route.url.join('/') } });
+        return false;
+    };
+    GuardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* Router */]) === "function" && _a || Object])
+    ], GuardComponent);
+    return GuardComponent;
+    var _a;
+}());
+
+//# sourceMappingURL=guard.component.js.map
+
+/***/ }),
+
 /***/ "./src/app/components/navbar/navbar.component.css":
 /***/ (function(module, exports) {
 
@@ -914,7 +962,7 @@ module.exports = "section#work .img-responsive{\n    margin: 0 auto;\n} \n\n.car
 /***/ "./src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <script src                        = \"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n<script src                        = \"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script> -->\n<!-- <div class                         = \"container\">\n   \n    <div id                        = \"myCarousel\" class            = \"carousel slide\" data-ride = \"carousel\">\n      Indicators (this line is comment)\n      <ol class                    = \"carousel-indicators\">\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"0\" class                  = \"active\"></li>\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"1\"></li>\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"2\"></li>\n      </ol>\n  \n      Wrapper for slides (this line is comment)\n      <div class                   = \"carousel-inner\">\n        <div class                 = \"item active\">\n          <img src                 = \"/assets/img/main3.jpg\" alt   = \"Los Angeles\" style        = \"width:100%;\">\n        </div>\n  \n        <div class                 = \"item\">\n          <img src                 = \"/assets/img/main2.jpg\" alt   = \"Chicago\" style            = \"width:100%;\">\n        </div>\n      \n        <div class                 = \"item\">\n          <img src                 = \"/assets/img/main.jpg\" alt    = \"New york\" style           = \"width:100%;\">\n        </div>\n      </div>\n  \n      Left and right controls (this line is comment)\n      <a class                     = \"left carousel-control\" href  = \"#myCarousel\" data-slide   = \"prev\">\n        <span class                = \"glyphicon glyphicon-chevron-left\"></span>\n        <span class                = \"sr-only\">Previous</span>\n      </a>\n      <a class                     = \"right carousel-control\" href = \"#myCarousel\" data-slide   = \"next\">\n        <span class                = \"glyphicon glyphicon-chevron-right\"></span>\n        <span class                = \"sr-only\">Next</span>\n      </a>\n    </div>\n  </div> -->\n  <!-- <h1>this is testing: {{leaderBoard[0].participantsName}}</h1> -->\n<div class                         = \"main-content\">\n    <div class                     = \"container-fluid\">\n        \n            <div class             = \"row\">\n        \n<!-- Furqan Editing Start -->\n<div class                         = \"col-lg-6 col-md-12\" style    = \"width:100%;\" >\n    <div class                     = \"card\" >\n        <div class                 = \"card-header\"  >\n            <h4 class              = \"title\">Participants</h4>\n            <!-- <p class          = \"category\">New employs on 15th September, 2016</p> -->\n        </div>\n        <div class                 = \"card-content table-responsive\">\n            <table class           = \"table table-hover\">\n                <thead class       = \"text-warning\">\n                    <tr>\n                        <th>Name</th>\n                        <th>TimetoFly</th>\n                        <th *ngFor = \"let pigeonLand of leaderBoard.pigeonLand\">Pigeons{{pigeonLand.pigeonNumber}}</th>\n                        <th>Grand Total</th>\n                    \n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor     = \"let data of leaderBoard.data\">\n                        <td>{{data.participantsName}}</td>\n                        <td>{{leaderBoard.flyTime}}</td>\n                        <td *ngFor = \"let pigeonLand of data.pigeonLand\">{{pigeonLand.landingTime}}</td>\n                        <td>{{data.grandTotal}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n<!-- Furqan Editing End -->\n               \n            </div>\n        </div>\n</div>\n"
+module.exports = "<!-- <script src                        = \"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\"></script>\n<script src                        = \"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script> -->\n<!-- <div class                         = \"container\">\n   \n    <div id                        = \"myCarousel\" class            = \"carousel slide\" data-ride = \"carousel\">\n      Indicators (this line is comment)\n      <ol class                    = \"carousel-indicators\">\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"0\" class                  = \"active\"></li>\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"1\"></li>\n        <li data-target            = \"#myCarousel\" data-slide-to   = \"2\"></li>\n      </ol>\n  \n      Wrapper for slides (this line is comment)\n      <div class                   = \"carousel-inner\">\n        <div class                 = \"item active\">\n          <img src                 = \"/assets/img/main3.jpg\" alt   = \"Los Angeles\" style        = \"width:100%;\">\n        </div>\n  \n        <div class                 = \"item\">\n          <img src                 = \"/assets/img/main2.jpg\" alt   = \"Chicago\" style            = \"width:100%;\">\n        </div>\n      \n        <div class                 = \"item\">\n          <img src                 = \"/assets/img/main.jpg\" alt    = \"New york\" style           = \"width:100%;\">\n        </div>\n      </div>\n  \n      Left and right controls (this line is comment)\n      <a class                     = \"left carousel-control\" href  = \"#myCarousel\" data-slide   = \"prev\">\n        <span class                = \"glyphicon glyphicon-chevron-left\"></span>\n        <span class                = \"sr-only\">Previous</span>\n      </a>\n      <a class                     = \"right carousel-control\" href = \"#myCarousel\" data-slide   = \"next\">\n        <span class                = \"glyphicon glyphicon-chevron-right\"></span>\n        <span class                = \"sr-only\">Next</span>\n      </a>\n    </div>\n  </div> -->\n  <!-- <h1>this is testing: {{leaderBoard[0].participantsName}}</h1> -->\n<div class                         = \"main-content\">\n    <div class                     = \"container-fluid\">\n        \n            <div class             = \"row\">\n        \n<!-- Furqan Editing Start -->\n<div class                         = \"col-lg-6 col-md-12\" style    = \"width:100%;\" >\n    <div class                     = \"card\" >\n        <div class                 = \"card-header\"  >\n            <h4 class              = \"title\">{{leaderBoard.activeCompetitionName}}</h4>\n            <!-- <p class          = \"category\">New employs on 15th September, 2016</p> -->\n        </div>\n        <div class                 = \"card-content table-responsive\">\n            <table class           = \"table table-hover\">\n                <thead class       = \"text-warning\">\n                    <tr>\n                        <th>Name</th>\n                        <th>TimetoFly</th>\n                        <th *ngFor = \"let pigeonLand of leaderBoard.pigeonLand\">Pigeons{{pigeonLand.pigeonNumber}}</th>\n                        <th>Grand Total</th>\n                    \n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor     = \"let data of leaderBoard.data\">\n                        <td>{{data.participantsName}}</td>\n                        <td>{{data.flyTime}}</td>\n                        <td *ngFor = \"let pigeonLand of data.pigeonLand\">{{pigeonLand.landingTime}}</td>\n                        <td>{{data.grandTotal}}</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n</div>\n<!-- Furqan Editing End -->\n               \n            </div>\n        </div>\n</div>\n"
 
 /***/ }),
 
@@ -1070,6 +1118,7 @@ var DashboardComponent = (function () {
         var _this = this;
         this.getLeaderBoardService.getLeaderBoard().subscribe(function (res) {
             _this.leaderBoard = {
+                activeCompetitionName: res[0].activeCompetitionName,
                 data: res,
                 pigeonLand: res[0].pigeonLand
             };

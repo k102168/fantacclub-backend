@@ -11,7 +11,9 @@ const competitionSchema = new Schema({
     startDate: { type : Date,default: new Date(+new Date() + 7*24*60*60*1000)},
     endDate: { type : Date, default: new Date(+new Date() + 7*24*60*60*1000)},
     noofdays: { type: Number },
-    pigeons: { type: Number}
+    pigeons: { type: Number},
+    flyTime: {type:String},
+    active:{type:Boolean}
 },{ versionKey: false })
 
 const Competition = mongoose.model('competition', competitionSchema);
